@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Teste RH</title>
+    <!--FIREBASE-->
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper blue">
+        <a href="#" class="brand-logo right">Testes TI</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="index.html">Aplicados hoje</a></li>
+          <li><a href="registrarteste.html">Registrar teste</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Cadastrar novo teste</h1>
+      <form id="frm_novoCadastro">
+            <div class="row">
+              <div class="col s12 m12">
+                <div class="input-field col s12">
+                  <input id="first_name" type="text" class="validate" />
+                  <label for="first_name">Nome</label>
+                </div>
+              </div>
+            </div>        
+            <div class="row">
+              <div class="row">
+                <h4>Excel</h4>
+              </div>
+              <div class="row">
+                <div class="col s12 m3">
+                    <select name="excelStatus" id="excelStatus">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Aprovado">Aprovado</option>
+                        <option value="Reprovado">Reprovado</option>
+                      </select>
+                      <label for="excelStatus">Excel</label>
+                </div>
+                <div class="col s12 m3">
+                    <p>
+                        <label>
+                          <input type="checkbox" class="filled-in" checked="checked" id="formulaMult" name="formulaMult"/>
+                          <span>Formula Multiplicação</span>
+                        </label>
+                      </p>
+                </div>
+                <div class="col s12 m3">
+                    <p>
+                        <label>
+                          <input type="checkbox" class="filled-in" checked="checked" id="formulaSoma" name="formulaSoma"/>
+                          <span>Formula Soma</span>
+                        </label>
+                      </p>
+                </div>
+                <div class="col s12 m3">
+                  <div class="row">
+                    <div class="col s12 m12">
+                        <p>
+                            <label>
+                              <input type="checkbox" class="filled-in" checked="checked" id="dentroTempoExcel" name="dentroTempoExcel"/>
+                              <span>No tempo</span>
+                            </label>
+                          </p>
+                    </div>
+                    <div class="col s12 m12">
+                        <p>
+                            <label>
+                              <input type="checkbox" class="filled-in" checked="checked" id="foraTempoExcel" name="foraTempoExcel"/>
+                              <span>Fora tempo</span>
+                            </label>
+                          </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m12 " >
+                    <label for="obsExcel"><b>Observação</b></label>
+                  <textarea type="text" id="obsExcel" name="obsExcel"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                  <h4>Word</h4>
+                </div>
+                <div class="row">
+                  <div class="col s12 m3">
+                      <select name="wordStatus" id="wordStatus">
+                          <option value="" disabled selected>Selecione</option>
+                          <option value="Aprovado">Aprovado</option>
+                          <option value="Reprovado">Reprovado</option>
+                        </select>
+                        <label for="wordStatus">Word</label>
+                  </div>
+                  <div class="col s12 m3">
+                    <div class="row">
+                      <div class="col s12 m12">
+                          <p>
+                              <label>
+                                <input type="checkbox" class="filled-in" checked="checked" id="dentroTempoWord" name="dentroTempoWord"/>
+                                <span>No tempo</span>
+                              </label>
+                            </p>
+                      </div>
+                      <div class="col s12 m12">
+                          <p>
+                              <label>
+                                <input type="checkbox" class="filled-in" checked="checked" id="foraTempoWord" name="foraTempoWord"/>
+                                <span>Fora tempo</span>
+                              </label>
+                            </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m12 " >
+                      <label for="obsWord"><b>Observação</b></label>
+                    <textarea rows="5" cols="5" type="text" id="obsWord" name="obsWord"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="row">
+                    <h4>Cadastro</h4>
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m3">
+                        <select name="cadastroStatus" id="cadastroStatus">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Aprovado">Aprovado</option>
+                            <option value="Reprovado">Reprovado</option>
+                          </select>
+                          <label for="cadastroStatus">Word</label>
+                    </div>
+                    <div class="col s12 m3">
+                      <div class="row">
+                        <div class="col s12 m12">
+                            <p>
+                                <label>
+                                  <input type="checkbox" class="filled-in" checked="checked" id="dentroTempoCadastro" name="dentroTempoCadastro"/>
+                                  <span>No tempo</span>
+                                </label>
+                              </p>
+                        </div>
+                        <div class="col s12 m12">
+                            <p>
+                                <label>
+                                  <input type="checkbox" class="filled-in" checked="checked" id="foraTempoCadastro" name="foraTempoCadastro"/>
+                                  <span>Fora tempo</span>
+                                </label>
+                              </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m12 " >
+                        <label for="obsCadastro"><b>Observação</b></label>
+                      <textarea rows="5" cols="5" type="text" id="obsCadastro" name="obsCadastro"></textarea>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </form>
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+    <script src="registrarteste.js"></script>
+  </body>
+</html>
